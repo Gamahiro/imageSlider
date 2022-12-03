@@ -18,8 +18,6 @@ const imageSlider = document.querySelector('.imageSlider');
 imageSliderElements = [img1, img2, img3, img4, img5];
 
 
-
-
 document.querySelector('.imgNavRight').addEventListener('click', () => {
     slideImagesRight(imageSliderElements, imageSlider);
 });
@@ -30,17 +28,16 @@ document.querySelector('.imgNavLeft').addEventListener('click', () => {
 });
 
 
-
 setInterval(slideImagesRight, 5000, imageSliderElements, imageSlider);
 
 
 
 function slideImagesLeft(imageArray, container) {
     let lastArrayElement = imageArray.slice(-1);
-imageArray.pop();
-imageArray.unshift(lastArrayElement[0]);
+    imageArray.pop();
+    imageArray.unshift(lastArrayElement[0]);
 
-rebuildImages(imageArray, container)
+    rebuildImages(imageArray, container)
 
 }
 
@@ -58,7 +55,7 @@ function rebuildImages(imageArray, container) {
     container.childNodes.forEach(element => {
         container.removeChild(element);
     });
-    
+
     imageArray.forEach(element => {
         container.appendChild(element);
     });
