@@ -18,8 +18,48 @@ const imgNav = document.querySelector('.imgNav');
 
 imageSliderElements = [img1, img2, img3, img4, img5];
 
+let currentImage = imageSliderElements[0];
 
-document.querySelector('.imgNavRight').addEventListener('click', () => {
+function nextImage() {
+if((imageSliderElements.indexOf(currentImage) + 2) > imageSliderElements.length) {
+    currentImage = imageSliderElements[0];
+}
+else {
+    currentImage = imageSliderElements[(imageSliderElements.indexOf(currentImage) + 1)];
+
+}
+
+
+}
+console.log(currentImage)
+nextImage();
+console.log(currentImage)
+nextImage();
+console.log(currentImage)
+nextImage();
+console.log(currentImage)
+nextImage();
+console.log(currentImage)
+nextImage();
+console.log(currentImage)
+nextImage();
+console.log(currentImage)
+
+function prevImage() {
+
+    currentImage = imageSliderElements[(imageSliderElements.indexOf(currentImage) - 1)];
+
+}
+
+
+
+
+
+
+
+
+
+/* document.querySelector('.imgNavRight').addEventListener('click', () => {
     slideImagesRight(imageSliderElements, imageSlider);
 });
 
@@ -53,7 +93,7 @@ function slideImagesRight(imageArray, container) {
     imageArray.push(firstArrayElement[0]);
   
     rebuildImages(imageArray, container);
-    
+
 
 }
 
@@ -68,4 +108,4 @@ function rebuildImages(imageArray, container) {
     });
 
     imageArray[3].style.display = 'block';
-}
+} */
