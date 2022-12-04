@@ -18,12 +18,13 @@ img {
     width: 300px;
     height: 300px;
     object-fit: contain;
-    animation: 5s infinite forwards slideLeft;
+    animation: 2s normal forwards;
+    animation-name: slideLeft;
 }
 
 @keyframes slideLeft {
     0% {
-        transform: translateX(100%);
+        transform: translateX(2.5%);
     }
     100% {
         transform: translateX(0%);
@@ -31,10 +32,10 @@ img {
 }
 @keyframes slideRight {
     0% {
-        transform: translateX(0%);
+        transform: translateX(-2.5%);
     }
     100% {
-        transform: translateX(100%);
+        transform: translateX(0%); 
     }
 }
 .imgNav {

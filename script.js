@@ -6,6 +6,7 @@ const img5 = document.querySelector('#img5');
 const img = document.querySelector('img');
 
 const imageSlider = document.querySelector('.imageSlider');
+const imgNav = document.querySelector('.imgNav');
 
 // Array of image Elements
 
@@ -33,22 +34,27 @@ setInterval(slideImagesRight, 5000, imageSliderElements, imageSlider);
 
 
 function slideImagesLeft(imageArray, container) {
+
     let lastArrayElement = imageArray.slice(-1);
     imageArray.pop();
     imageArray.unshift(lastArrayElement[0]);
 
-    rebuildImages(imageArray, container)
+    rebuildImages(imageArray, container);
+
 
 }
 
 
 
 function slideImagesRight(imageArray, container) {
+
     let firstArrayElement = imageArray.slice(0);
     imageArray.shift();
     imageArray.push(firstArrayElement[0]);
-
+  
     rebuildImages(imageArray, container);
+    
+
 }
 
 function rebuildImages(imageArray, container) {
@@ -57,6 +63,9 @@ function rebuildImages(imageArray, container) {
     });
 
     imageArray.forEach(element => {
+        element.style.display = 'none';
         container.appendChild(element);
     });
+
+    imageArray[3].style.display = 'block';
 }
