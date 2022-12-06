@@ -16,18 +16,20 @@ const img5 = './images/english-bulldog-g611d94c0e_1920.jpg';
 imageSliderElements = [img1, img2, img3, img4, img5];
 
 let currentImage = imageSliderElements[0];
+sliderImage.src = currentImage;
+createNavElements();
 
 navArray = [];
 
 function createNavElements() {
     
-    for (let i = imgNav.children.length; i < 0; i--) {
-        const element = imgNav.children[i];
-        console.log(imgNav.children.length)   
-        console.log('index ' + i)
-        imgNav.removeChild(element);
-    }
+    console.log(imgNav.children.length);
 
+    for (let i = imgNav.children.length; i > 0; i--) {
+        console.log('index ' + i);
+        console.log(imgNav.children.length);
+        imgNav.removeChild(imgNav.children[(i - 1)]);
+    }
 
     imageSliderElements.forEach(element => {
     navArrayElement = document.createElement('div');
@@ -40,8 +42,7 @@ function createNavElements() {
     });
 
 }
-createNavElements();
-createNavElements();
+
 
 
 
@@ -49,10 +50,12 @@ function nextImage() {
 if((imageSliderElements.indexOf(currentImage) + 2) > imageSliderElements.length) {
     currentImage = imageSliderElements[0];
     sliderImage.src = currentImage;
+createNavElements();
 }
 else {
     currentImage = imageSliderElements[(imageSliderElements.indexOf(currentImage) + 1)];
     sliderImage.src = currentImage;
+createNavElements();
 }
 
 
@@ -62,10 +65,12 @@ function prevImage() {
     if((imageSliderElements.indexOf(currentImage) - 1) < 0) {
         currentImage = imageSliderElements[imageSliderElements.length - 1];
         sliderImage.src = currentImage;
+createNavElements();
     }
     else {
         currentImage = imageSliderElements[(imageSliderElements.indexOf(currentImage) - 1)];
         sliderImage.src = currentImage;
+createNavElements();
     }
 
     
@@ -80,7 +85,7 @@ document.querySelector('.imgNavLeft').addEventListener('click', () => {
     prevImage();
 });
 
-
+setInterval(nextImage, 5000);
 
 
 
